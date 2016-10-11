@@ -13,6 +13,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^6.0.45",
     "@types/react": "^0.14.39",
     "@types/react-dom": "^0.14.17",
     "clean-webpack-plugin": "^0.1.11",
