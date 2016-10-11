@@ -10,8 +10,6 @@
 
 import * as React from 'react'
 
-import styles from './Component.css'
-
 type Props = {
   title: string
 }
@@ -55,7 +53,7 @@ export default class
   }
 
   render() {
-    return <div className={styles.component}>
+    return <div>
       <h1>{this.props.title}</h1>
       <p>{this.state.counter}</p>
     </div>
