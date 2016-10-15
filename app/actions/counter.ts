@@ -1,19 +1,12 @@
-export const increment = () => {
-    return {
-        type: "INCREMENT"
-    }
-}
+export const increment = () => ({
+  type: 'INCREMENT'
+})
 
-export const decrement = () => {
-    return {
-        type: "DECREMENT"
-    }
-}
+export const decrement = () => ({
+  type: 'DECREMENT'
+})
 
-export const incrementAsync = () => {
-    return dispatch => {
-        setTimeout(() => {
-            dispatch(increment());
-        }, 1000);
-    }
+export const incrementAsync = () => dispatch => {
+  setTimeout(() =>
+    dispatch(increment()), 1000)
 }
