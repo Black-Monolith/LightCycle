@@ -1,14 +1,9 @@
-
-      /*#######.
-     ########",#:
-   #########',##".
-  ##'##'## .##',##.
-   ## ## ## # ##",#.
-    ## ## ## ## ##'
-     ## ## ## :##
-      ## ## ##*/
-
 body {
   background: #FFFEFD;
   font-family: "Helvetica", "Arial", "sans-serif";
+  margin: 0px;
+}
+
+nav {
+    padding: 20px;
 }

@@ -13,9 +13,16 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/immutable": "^3.8.4",
     "@types/node": "^6.0.45",
-    "@types/react": "^0.14.39",
+    "@types/react": "^0.14.41",
     "@types/react-dom": "^0.14.17",
+    "@types/react-redux": "^4.4.32",
+    "@types/react-router": "^2.0.37",
+    "@types/react-router-redux": "^4.0.34",
+    "@types/redux": "^3.6.31",
+    "@types/redux-logger": "^2.6.32",
+    "@types/redux-thunk": "^2.1.31",
     "clean-webpack-plugin": "^0.1.11",
     "css-loader": "^0.25.0",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -32,7 +39,14 @@
     "when-switch": "0.0.1"
   },
   "dependencies": {
+    "immutable": "^3.8.1",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.7.0",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0"
   }
 }
