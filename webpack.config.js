@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const merge = require('webpack-merge')
 const validate = require('webpack-validator')
 
-const parts = require('./libs/parts')
+const parts = require('./webpack.parts')
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
