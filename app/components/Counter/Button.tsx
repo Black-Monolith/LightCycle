@@ -10,8 +10,7 @@ export class Button extends React.Component<Props, void> {
     const { action, text } = this.props
 
     return (
-      <button
-        onClick={action}>
+      <button onClick={action}>
         {text}
       </button>
     )
