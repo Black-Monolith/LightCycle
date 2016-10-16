@@ -12,15 +12,12 @@ import rootReducer from './reducers'
 
 const loggerMiddleware = createLogger()
 
-const createStoreWithMiddleware = applyMiddleware(
+const store = applyMiddleware(
   thunkMiddleware,
   loggerMiddleware
-)(createStore)
+)(createStore)(rootReducer)
 
-const store = createStoreWithMiddleware(rootReducer)
 const history = syncHistoryWithStore(browserHistory, store)
-
-console.log(store.getState())
 
 render(
   <Provider store={store}>
