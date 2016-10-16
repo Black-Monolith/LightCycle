@@ -9,7 +9,9 @@
     "deploy": "gh-pages -d build -b master",
     "stats": "webpack --profile --json > stats.json"
   },
-  "keywords": [],
+  "keywords": [
+    "typescript", "immutable", "react", "redux", "webpack"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
