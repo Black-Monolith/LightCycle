@@ -4,13 +4,11 @@ type Props = {
   counter: number
 }
 
-export class Counter extends React.Component<Props, void> {
-  render() {
-    return (
-      <div>
-        <h1>Counter</h1>
-        {this.props.counter}
-      </div>
-    )
-  }
-}
+const Counter = (props: Props) => (
+  <div>
+    <h1>Counter</h1>
+    <p>{props.counter}</p>
+  </div>
+)
+
+export default Counter

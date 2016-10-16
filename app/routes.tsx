@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { IndexRoute, Route } from 'react-router'
 
-import { App } from './containers/App'
+import App from './containers/App'
 import CounterPage from './containers/CounterPage'
-import { Home } from './components/Home'
+import Home from './components/Home'
 
 export default (
   <Route path='/' component={App}>

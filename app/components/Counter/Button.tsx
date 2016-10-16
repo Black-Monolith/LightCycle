@@ -5,14 +5,10 @@ type Props = {
   action: () => void
 }
 
-export class Button extends React.Component<Props, void> {
-  render() {
-    const { action, text } = this.props
+const Button = (props: Props) => (
+  <button onClick={props.action}>
+    {props.text}
+  </button>
+)
 
-    return (
-      <button onClick={action}>
-        {text}
-      </button>
-    )
-  }
-}
+export default Button

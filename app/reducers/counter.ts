@@ -1,22 +1,30 @@
-import { fromJS } from 'immutable'
+import { set } from 'monolite'
+import { Action, Reducer } from 'redux'
 
-const INITIAL_STATE = fromJS({
-  value: 0
-})
-
-export default function (state = INITIAL_STATE, actions: any) {
-  switch (actions.type) {
-    case 'INCREMENT':
-      return increment(state)
-    case 'DECREMENT':
-      return decrement(state)
-    default:
-      return state
-  }
+export type CounterState = {
+  value: number
 }
 
-const increment = (state: any) =>
-  state.update('value', (value: number) => value + 1)
+const INITIAL_STATE: CounterState = {
+  value: 0
+}
 
-const decrement = (state: any) =>
-  state.update('value', (value: number) => value - 1)
+const increment = (state: CounterState) =>
+  set(state, _ => _.value)(value => value + 1)
+
+const decrement = (state: CounterState) =>
+  set(state, _ => _.value)(value => value - 1)
+
+const counterReducer: Reducer<CounterState> =
+  (state = INITIAL_STATE, action: Action) => {
+    switch (action.type) {
+      case 'INCREMENT':
+        return increment(state)
+      case 'DECREMENT':
+        return decrement(state)
+      default:
+        return state
+    }
+  }
+
+export default counterReducer

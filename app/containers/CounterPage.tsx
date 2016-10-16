@@ -1,9 +1,11 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import { Counter } from '../components/Counter/Counter'
-import { Button } from '../components/Counter/Button'
+import Counter from '../components/Counter/Counter'
+import Button from '../components/Counter/Button'
 import * as counterActions from '../actions/counter'
+
+import { State } from '../reducers'
 
 type Props = {
   counter: number,
@@ -12,45 +14,36 @@ type Props = {
   incrementAsync: () => void
 }
 
-class CounterPage extends React.Component<Props, void> {
-  render() {
-    const { counter, decrement, increment, incrementAsync } = this.props
-
-    return (
+const CounterPage =
+  (props: Props) => (
+    <div>
+      <Counter
+        counter={props.counter} />
       <div>
-        <Counter
-          counter={counter}
-          />
-        <div>
-          <Button
-            action={increment}
-            text={'Increment'}
-            />
-          <Button
-            action={decrement}
-            text={'Decrement'}
-            />
-          <Button
-            action={incrementAsync}
-            text={'IncrementAsync'}
-            />
-        </div>
+        <Button
+          action={props.increment}
+          text={'Increment'} />
+        <Button
+          action={props.decrement}
+          text={'Decrement'} />
+        <Button
+          action={props.incrementAsync}
+          text={'IncrementAsync'} />
       </div>
-    )
-  }
-}
+    </div>
+  )
 
-const mapStateToProps = state => (
+const mapStateToProps = (state: State) => (
   {
-    counter: state.counter.get('value')
+    counter: state.counter.value
   }
 )
 
 const mapDispatchToProps = dispatch => (
   {
-    increment: () => dispatch(counterActions.increment()),
-    decrement: () => dispatch(counterActions.decrement()),
-    incrementAsync: () => dispatch(counterActions.incrementAsync())
+    increment: () => dispatch(counterActions.increment),
+    decrement: () => dispatch(counterActions.decrement),
+    incrementAsync: () => dispatch(counterActions.incrementAsync)
   }
 )
 
