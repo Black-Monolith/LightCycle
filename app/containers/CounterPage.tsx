@@ -6,7 +6,6 @@ import { Button } from '../components/Counter/Button'
 import * as counterActions from '../actions/counter'
 
 type Props = {
-  t: any,
   counter: number,
   increment: () => void,
   decrement: () => void,
@@ -41,14 +40,13 @@ class CounterPage extends React.Component<Props, void> {
   }
 }
 
-const mapStateToProps = (state: any) => (
+const mapStateToProps = state => (
   {
-    counter: state.counter.get('value'),
-    t: state
+    counter: state.counter.get('value')
   }
 )
 
-const mapDispatchToProps = (dispatch) => (
+const mapDispatchToProps = dispatch => (
   {
     increment: () => dispatch(counterActions.increment()),
     decrement: () => dispatch(counterActions.decrement()),
