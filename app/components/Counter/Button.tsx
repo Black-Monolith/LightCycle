@@ -5,10 +5,9 @@ type Props = {
   action: () => void
 }
 
-const Button = (props: Props) => (
+const Button = (props: Props) =>
   <button onClick={props.action}>
     {props.text}
   </button>
-)
 
 export default Button

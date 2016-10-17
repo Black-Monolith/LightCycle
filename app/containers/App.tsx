@@ -6,11 +6,10 @@ type Props = {
   children: any
 }
 
-const App = (props: Props) => (
+const App = (props: Props) =>
   <div>
     <Navbar />
     {props.children}
   </div>
-)
 
 export default App

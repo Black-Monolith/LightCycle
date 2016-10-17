@@ -15,7 +15,7 @@ type Props = {
 }
 
 const CounterPage =
-  (props: Props) => (
+  (props: Props) =>
     <div>
       <Counter
         counter={props.counter} />
@@ -31,7 +31,6 @@ const CounterPage =
           text={'IncrementAsync'} />
       </div>
     </div>
-  )
 
 const mapStateToProps = (state: State) => (
   {
