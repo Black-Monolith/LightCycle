@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const merge = require('webpack-merge')
 const validate = require('webpack-validator')
+const when = require('when-switch').default
 
 const parts = require('./webpack.parts')
 
@@ -32,12 +33,9 @@ const common = {
   ]
 }
 
-let config
-
-switch (process.env.npm_lifecycle_event) {
-
-  case 'build':
-    config = merge(
+let config =
+  when(process.env.npm_lifecycle_event)
+    .is('build', merge(
       common,
       {
         devtool: 'source-map',
@@ -60,11 +58,8 @@ switch (process.env.npm_lifecycle_event) {
       parts.extractCSS(PATHS.style),
       parts.purifyCSS([PATHS.app]),
       parts.compileTypescript(PATHS.app)
-    )
-    break
-
-  default:
-    config = merge(
+    ))
+    .else(merge(
       common,
       {
         devtool: 'eval-source-map'
@@ -75,8 +70,7 @@ switch (process.env.npm_lifecycle_event) {
         host: process.env.HOST,
         port: process.env.PORT
       })
-    )
-}
+    ))
 
 module.exports = validate(config, {
   quiet: true
