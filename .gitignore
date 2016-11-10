@@ -2,3 +2,4 @@
 /stats.json
 /build
 npm-debug.log*
+/.vscode
