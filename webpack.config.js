@@ -33,7 +33,7 @@ const common = {
   ]
 }
 
-let config =
+const config =
   when(process.env.npm_lifecycle_event)
     .is('build', merge(
       common,
