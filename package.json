@@ -42,15 +42,22 @@
     "webpack-validator": "^2.2.9"
   },
   "dependencies": {
+    "@types/node": "^6.0.46",
+    "@types/react": "^0.14.47",
+    "clean-webpack-plugin": "^0.1.14",
+    "html-webpack-plugin": "^2.24.1",
     "monolite": "0.0.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.7.0",
-    "react-router-redux": "^4.0.5",
+    "react-router-redux": "^4.0.7",
     "redux": "^3.5.2",
-    "redux-logger": "^2.6.1",
+    "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
+    "ts-loader": "^0.9.5",
+    "typescript": "^2.1.1",
+    "webpack": "^1.13.3",
     "when-switch": "^0.1.0"
   }
 }
