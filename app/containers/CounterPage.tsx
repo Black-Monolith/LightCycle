@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
+import { connect, Dispatch } from 'react-redux'
 
 import Counter from '../components/Counter/Counter'
 import Button from '../components/Counter/Button'
@@ -13,7 +13,7 @@ const mapStateToProps = (state: State) => (
   }
 )
 
-const mapDispatchToProps = dispatch => (
+const mapDispatchToProps = (dispatch: Dispatch<State>) => (
   {
     increment: () => dispatch(counterActions.increment),
     decrement: () => dispatch(counterActions.decrement),
