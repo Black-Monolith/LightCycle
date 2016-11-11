@@ -1,15 +1,13 @@
 import * as React from 'react'
+import { Component } from 'react'
 
 import Navbar from '../components/Navbar'
 
-type Props = {
-  children: any
+export default class App extends Component<void, void> {
+  render() {
+    return <div>
+      <Navbar />
+      {this.props.children}
+    </div>
+  }
 }
-
-const App = (props: Props) =>
-  <div>
-    <Navbar />
-    {props.children}
-  </div>
-
-export default App
