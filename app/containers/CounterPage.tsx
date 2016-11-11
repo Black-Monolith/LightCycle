@@ -7,15 +7,22 @@ import * as counterActions from '../actions/counter'
 
 import { State } from '../reducers'
 
-type Props = {
-  counter: number,
-  increment: () => void,
-  decrement: () => void,
-  incrementAsync: () => void
-}
+const mapStateToProps = (state: State) => (
+  {
+    counter: state.counter.value
+  }
+)
+
+const mapDispatchToProps = dispatch => (
+  {
+    increment: () => dispatch(counterActions.increment),
+    decrement: () => dispatch(counterActions.decrement),
+    incrementAsync: () => dispatch(counterActions.incrementAsync)
+  }
+)
 
 const CounterPage =
-  (props: Props) =>
+  connect(mapStateToProps, mapDispatchToProps)(props =>
     <div>
       <Counter
         counter={props.counter} />
@@ -31,19 +38,6 @@ const CounterPage =
           text={'IncrementAsync'} />
       </div>
     </div>
+  )
 
-const mapStateToProps = (state: State) => (
-  {
-    counter: state.counter.value
-  }
-)
-
-const mapDispatchToProps = dispatch => (
-  {
-    increment: () => dispatch(counterActions.increment),
-    decrement: () => dispatch(counterActions.decrement),
-    incrementAsync: () => dispatch(counterActions.incrementAsync)
-  }
-)
-
-export default connect(mapStateToProps, mapDispatchToProps)(CounterPage)
+export default CounterPage
