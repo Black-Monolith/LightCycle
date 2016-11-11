@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { counter } from './Counter.scss'
 
 type Props = {
   counter: number
