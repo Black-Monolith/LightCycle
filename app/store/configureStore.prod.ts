@@ -4,7 +4,6 @@ import * as createLogger from 'redux-logger'
 import rootReducer, { State } from '../reducers'
 
 const loggerMiddleware = createLogger()
-
 const enhancer = applyMiddleware(thunkMiddleware, loggerMiddleware)
 
 export = (initialState?: State) => {
