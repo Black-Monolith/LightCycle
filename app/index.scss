@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Abril Fatface";
+    src: url("./fonts/AbrilFatface-Regular.woff2") format("woff2");
+}
+
 body {
   background: #FFFEFD;
   margin: 25px;
@@ -15,5 +20,10 @@ nav {
       width: 76px;
     }
   }
-}
 
+  h1 {
+    font-size: 36px;
+    font-family: "Abril Fatface", "Times", "Times New Roman", "serif";
+    font-weight: normal;
+  }
+}

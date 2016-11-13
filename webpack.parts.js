@@ -85,6 +85,21 @@ exports.loadImages = paths => ({
   }
 })
 
+exports.loadFonts = paths => ({
+  module: {
+    loaders: [
+      {
+        test: /\.woff(2)?$/,
+        loader: 'url',
+        query: {
+          name: 'fonts/[hash].[ext]'
+        },
+        include: paths
+      }
+    ]
+  }
+})
+
 exports.extractCSS = paths => ({
   module: {
     loaders: [

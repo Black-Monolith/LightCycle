@@ -11,6 +11,9 @@ const PATHS = {
   style: [
     path.join(__dirname, 'app')
   ],
+  fonts: [
+    path.join(__dirname, 'app', 'fonts')
+  ],
   images: path.join(__dirname, 'app', 'images'),
   build: path.join(__dirname, 'build')
 }
@@ -56,6 +59,7 @@ const config =
       }),
       parts.minify(),
       parts.loadImages(PATHS.images),
+      parts.loadFonts(PATHS.fonts),
       parts.extractCSS(PATHS.style),
       parts.purifyCSS([PATHS.app]),
       parts.compileTypescript(PATHS.app)
@@ -67,6 +71,7 @@ const config =
       },
       parts.hotModuleReplacement(),
       parts.loadImages(PATHS.images),
+      parts.loadFonts(PATHS.fonts),
       parts.setupCSS(PATHS.style),
       parts.compileTypescript(PATHS.app),
       parts.devServer({
