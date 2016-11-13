@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { connect, Dispatch } from 'react-redux'
 
-import Counter from '../components/Counter/Counter'
-import Button from '../components/Counter/Button'
+import Counter from '../components/Counter'
 import * as counterActions from '../actions/counter'
 
 import { State } from '../reducers'
@@ -27,15 +26,15 @@ const CounterPage =
       <Counter
         counter={props.counter} />
       <div>
-        <Button
-          action={props.increment}
-          text={'Increment'} />
-        <Button
-          action={props.decrement}
-          text={'Decrement'} />
-        <Button
-          action={props.incrementAsync}
-          text={'IncrementAsync'} />
+        <button onClick={props.increment}>
+          Increment
+        </button>
+        <button onClick={props.decrement}>
+          Decrement
+        </button>
+        <button onClick={props.incrementAsync}>
+          IncrementAsync
+        </button>
       </div>
     </div>
   )

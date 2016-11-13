@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Shortcut from './Shortcut'
+import Shortcut from '../Shortcut'
 
 const Home = () => (
   <div>
