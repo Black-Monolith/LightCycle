@@ -24,12 +24,12 @@ exports.setupCSS = paths => ({
     loaders: [
       {
         test: /\.css$/,
-        loaders: ['style', 'typings-for-css-modules?modules'],
+        loaders: ['style', 'css?modules'],
         include: paths
       },
       {
         test: /\.scss$/,
-        loaders: ['style', 'typings-for-css-modules?modules&sass'],
+        loaders: ['style', 'css?modules', 'sass'],
         include: paths
       }
     ]
@@ -71,6 +71,18 @@ exports.clean = path => ({
       root: process.cwd()
     })
   ]
+})
+
+exports.loadImages = paths => ({
+  module: {
+    loaders: [
+      {
+        test: /\.svg/,
+        loader: 'file',
+        include: paths
+      }
+    ]
+  }
 })
 
 exports.extractCSS = paths => ({

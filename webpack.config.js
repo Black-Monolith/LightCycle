@@ -9,14 +9,14 @@ const parts = require('./webpack.parts')
 const PATHS = {
   app: path.join(__dirname, 'app'),
   style: [
-    path.join(__dirname, 'app', 'main.scss')
+    path.join(__dirname, 'app')
   ],
+  images: path.join(__dirname, 'app', 'images'),
   build: path.join(__dirname, 'build')
 }
 
 const common = {
   entry: {
-    style: PATHS.style,
     app: path.join(PATHS.app, 'index.tsx')
   },
   output: {
@@ -55,6 +55,7 @@ const config =
         entries: ['react']
       }),
       parts.minify(),
+      parts.loadImages(PATHS.images),
       parts.extractCSS(PATHS.style),
       parts.purifyCSS([PATHS.app]),
       parts.compileTypescript(PATHS.app)
@@ -65,6 +66,7 @@ const config =
         devtool: 'eval-source-map'
       },
       parts.hotModuleReplacement(),
+      parts.loadImages(PATHS.images),
       parts.setupCSS(PATHS.style),
       parts.compileTypescript(PATHS.app),
       parts.devServer({

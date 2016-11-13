@@ -11,8 +11,14 @@ import DevTools from './containers/DevTools'
 const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)
 
+import * as style from './index.scss'
+import * as logo from './images/logo.svg'
+
 render(
-  <div>
+  <div className={style['app']}>
+    <div className={style['logo']}>
+      <img src={logo}/>
+    </div>
     <Provider store={store}>
       <div>
         <Router history={history} routes={getRoutes} />
