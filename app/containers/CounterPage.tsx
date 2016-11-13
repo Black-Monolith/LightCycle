@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { connect, Dispatch } from 'react-redux'
 
-import Counter from '../components/Counter'
-import * as counterActions from '../actions/counter'
+import Counter from 'components/Counter'
+import * as counterActions from 'actions/counter'
 
-import { State } from '../reducers'
+import { State } from 'reducers'
 
 const mapStateToProps = (state: State) => (
   {

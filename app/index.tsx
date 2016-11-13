@@ -5,14 +5,14 @@ import { Router, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import configureStore from './store'
 
-import getRoutes from './routes'
-import DevTools from './containers/DevTools'
+import getRoutes from 'routes'
+import DevTools from 'containers/DevTools'
 
 const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)
 
 import * as style from './index.scss'
-import * as logo from './images/logo.svg'
+import * as logo from 'images/logo.svg'
 
 render(
   <div className={style['app']}>
