@@ -2294,9 +2294,9 @@ moment@2.x.x:
   version "2.16.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.16.0.tgz#f38f2c97c9889b0ee18fc6cc392e1e443ad2da8e"
 
-monolite@0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/monolite/-/monolite-0.0.4.tgz#8b0ffc683e65a600cbc50beb681c90b958c9cd32"
+monolite:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/monolite/-/monolite-0.1.2.tgz#920e30fefc0693ba5ae36cd6e0be89ec36730250"
 
 ms@0.7.1:
   version "0.7.1"
