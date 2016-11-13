@@ -77,7 +77,7 @@ exports.loadImages = paths => ({
   module: {
     loaders: [
       {
-        test: /\.svg/,
+        test: /\.svg$/,
         loader: 'file',
         include: paths
       }
