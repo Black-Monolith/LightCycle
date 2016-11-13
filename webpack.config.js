@@ -64,6 +64,7 @@ const config =
       {
         devtool: 'eval-source-map'
       },
+      parts.hotModuleReplacement(),
       parts.setupCSS(PATHS.style),
       parts.compileTypescript(PATHS.app),
       parts.devServer({
