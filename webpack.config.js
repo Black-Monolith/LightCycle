@@ -20,7 +20,8 @@ const PATHS = {
 
 const common = {
   entry: {
-    app: path.join(PATHS.app, 'index.tsx')
+    app: path.join(PATHS.app, 'index.tsx'),
+    style: path.join(PATHS.app, 'fonts', 'index.scss')
   },
   output: {
     path: PATHS.build,
