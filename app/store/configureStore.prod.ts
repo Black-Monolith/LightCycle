@@ -7,7 +7,7 @@ const loggerMiddleware = createLogger()
 
 const enhancer = applyMiddleware(thunkMiddleware, loggerMiddleware)
 
-export default (initialState?: State) => {
+export = (initialState?: State) => {
   const store = createStore(rootReducer, initialState, enhancer)
 
   if (module.hot) {

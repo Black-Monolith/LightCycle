@@ -11,7 +11,7 @@ const enhancer = compose(
   DevTools.instrument()
 )
 
-export default (initialState?: State) => {
+export = (initialState?: State) => {
   const store = createStore(rootReducer, initialState, enhancer)
 
   if (module.hot) {
