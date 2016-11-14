@@ -6,7 +6,7 @@ import Counter from 'components/Counter'
 
 type MappedState = CounterState
 
-const mapState =
+const mapStateToProps =
   (state: State): MappedState => state.counter
 
 interface MappedDispatch {
@@ -15,7 +15,7 @@ interface MappedDispatch {
   incrementAsync: () => any
 }
 
-const mapDispatch =
+const mapDispatchToProps =
   (dispatch: Dispatch<State>): MappedDispatch => ({
     increment: () => dispatch(increment),
     decrement: () => dispatch(decrement),
@@ -23,4 +23,4 @@ const mapDispatch =
   })
 
 export type MappedProps = MappedState & MappedDispatch
-export default connect(mapState, mapDispatch)(Counter)
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)
