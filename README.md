@@ -13,16 +13,16 @@ TypeScript + Webpack + React + Redux + HotReload
 
 ## Install
 ```
-yarn
+npm install
 ```
 
 ## Run
 Development mode with HotReload
 ```
-yarn start
+npm start
 ```
 
 ## Build
 ```
-yarn build
+npm run build
 ```
