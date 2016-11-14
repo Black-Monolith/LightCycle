@@ -2,25 +2,20 @@ import * as React from 'react'
 import { connect, Dispatch } from 'react-redux'
 
 import Counter from 'components/Counter'
-import * as counterActions from 'actions/counter'
-
 import { State } from 'reducers'
+import { increment, decrement, incrementAsync } from 'actions/counter'
 
-const mapStateToProps = (state: State) => (
-  {
-    counter: state.counter.value
-  }
-)
+const mapStateToProps = (state: State) => ({
+  counter: state.counter.value
+})
 
-const mapDispatchToProps = (dispatch: Dispatch<State>) => (
-  {
-    increment: () => dispatch(counterActions.increment),
-    decrement: () => dispatch(counterActions.decrement),
-    incrementAsync: () => dispatch(counterActions.incrementAsync)
-  }
-)
+const mapDispatchToProps = (dispatch: Dispatch<State>) => ({
+  increment: () => dispatch(increment),
+  decrement: () => dispatch(decrement),
+  incrementAsync: () => dispatch(incrementAsync)
+})
 
-const CounterPage =
+export default
   connect(mapStateToProps, mapDispatchToProps)(props =>
     <div>
       <Counter
@@ -38,5 +33,3 @@ const CounterPage =
       </div>
     </div>
   )
-
-export default CounterPage
