@@ -1,53 +1,49 @@
-
-      /*#######.
-     ########",#:
-   #########',##".
-  ##'##'## .##',##.
-   ## ## ## # ##",#.
-    ## ## ## ## ##'
-     ## ## ## :##
-      ## ## ##*/
-
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const merge = require('webpack-merge')
 const validate = require('webpack-validator')
+const when = require('when-switch').default
 
-const parts = require('./libs/parts')
+const parts = require('./webpack.parts')
+const appRoot = path.join(__dirname, '../app')
 
 const PATHS = {
-  app: path.join(__dirname, 'app'),
+  app: appRoot,
   style: [
-    path.join(__dirname, 'app', 'main.css')
+    appRoot
   ],
-  build: path.join(__dirname, 'build')
+  fonts: [
+    path.join(appRoot, 'fonts')
+  ],
+  images: path.join(appRoot, 'images'),
+  build: path.join(appRoot, '../build')
 }
 
 const common = {
-  entry: {
-    style: PATHS.style,
-    app: path.join(PATHS.app, 'index.tsx')
-  },
+  entry: [
+    'fonts/index.scss',
+    'global.scss',
+    'index.tsx'
+  ],
   output: {
     path: PATHS.build,
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.ts', '.tsx', '.js', '.jsx', '.css']
+    extensions: ['', '.ts', '.tsx', '.js', '.jsx', '.scss', '.css'],
+    modulesDirectories: ['app', 'node_modules']
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack Boilerplate'
+      title: 'LightCycle'
     })
   ]
 }
 
-let config
-
-switch (process.env.npm_lifecycle_event) {
-
-  case 'build':
-    config = merge(
+const config =
+  when(process.env.npm_lifecycle_event)
+    // Production
+    .is('build', merge(
       common,
       {
         devtool: 'source-map',
@@ -67,26 +63,24 @@ switch (process.env.npm_lifecycle_event) {
         entries: ['react']
       }),
       parts.minify(),
+      parts.loadImages(PATHS.images),
+      parts.loadFonts(PATHS.fonts),
       parts.extractCSS(PATHS.style),
       parts.purifyCSS([PATHS.app]),
       parts.compileTypescript(PATHS.app)
-    )
-    break
-
-  default:
-    config = merge(
+    ))
+    // Development
+    .else(merge(
+      parts.hotModuleReplacement(),
       common,
       {
-        devtool: 'eval-source-map'
+        devtool: 'eval'
       },
+      parts.loadImages(PATHS.images),
+      parts.loadFonts(PATHS.fonts),
       parts.setupCSS(PATHS.style),
-      parts.compileTypescript(PATHS.app),
-      parts.devServer({
-        host: process.env.HOST,
-        port: process.env.PORT
-      })
-    )
-}
+      parts.compileTypescript(PATHS.app)
+    ))
 
 module.exports = validate(config, {
   quiet: true

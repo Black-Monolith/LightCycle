@@ -2,3 +2,6 @@
 /stats.json
 /build
 npm-debug.log*
+/.vscode
+*.scss.d.ts
+*.css.d.ts

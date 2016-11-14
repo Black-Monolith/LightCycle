@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
+    "baseUrl": "./app",
     "noImplicitAny": true,
-    "jsx": "react",
+    "noUnusedLocals": true,
+    "jsx": "preserve",
     "sourceMap": true,
     "rootDir": "./app"
   }

@@ -1,13 +1,3 @@
-
-      /*#######.
-     ########",#:
-   #########',##".
-  ##'##'## .##',##.
-   ## ## ## # ##",#.
-    ## ## ## ## ##'
-     ## ## ## :##
-      ## ## ##*/
-
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -36,6 +26,11 @@ exports.setupCSS = paths => ({
         test: /\.css$/,
         loaders: ['style', 'css?modules'],
         include: paths
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css?modules', 'sass'],
+        include: paths
       }
     ]
   }
@@ -60,9 +55,9 @@ exports.setFreeVariable = (key, value) => ({
 })
 
 exports.extractBundle = options => ({
-  entry: {
-    [options.name]: options.entries
-  },
+  entry: [
+    options.entries
+  ],
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: [options.name, 'manifest']
@@ -78,12 +73,44 @@ exports.clean = path => ({
   ]
 })
 
+exports.loadImages = paths => ({
+  module: {
+    loaders: [
+      {
+        test: /\.svg$/,
+        loader: 'file',
+        include: paths
+      }
+    ]
+  }
+})
+
+exports.loadFonts = paths => ({
+  module: {
+    loaders: [
+      {
+        test: /\.woff(2)?$/,
+        loader: 'url',
+        query: {
+          name: 'fonts/[hash].[ext]'
+        },
+        include: paths
+      }
+    ]
+  }
+})
+
 exports.extractCSS = paths => ({
   module: {
     loaders: [
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style', 'css'),
+        include: paths
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style', 'css', 'sass'),
         include: paths
       }
     ]
@@ -107,8 +134,19 @@ exports.compileTypescript = path => ({
     loaders: [
       {
         test: /\.tsx?$/,
-        loader: 'ts'
+        loaders: ['babel', 'ts']
       }
     ]
   }
+})
+
+exports.hotModuleReplacement = () => ({
+  entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server'
+  ],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
 })

@@ -1,0 +1,26 @@
+.navbar {
+  margin: 0;
+  padding: 0;
+
+  ul {
+    padding: 0;
+
+    li {
+      margin: 9px;
+      display: inline-block;
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        font-weight: bolder;
+        color: #908A9E;
+        transition-duration: 0.1s;
+      }
+
+      a:hover {
+        color: #49307F;
+        border-bottom: 3px solid #49307F;
+      }
+    }
+  }
+}
