@@ -6,7 +6,6 @@ TypeScript + Webpack + React + Redux + HotReload
   <img src="https://david-dm.org/black-monolith/LightCycle.svg"
     alt="Dependencies Status">
 </a>
-
 <a href="https://david-dm.org/black-monolith/LightCycle?type=dev">
   <img src="https://david-dm.org/black-monolith/LightCycle/dev-status.svg"
     alt="Dev Dependencies Status">
