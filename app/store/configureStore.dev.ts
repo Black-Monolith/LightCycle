@@ -16,8 +16,8 @@ export = (initialState?: State) => {
   const store = createStore(rootReducer, initialState, enhancer)
 
   if (module.hot) {
-    module.hot.accept('../reducers', () =>
-      store.replaceReducer(require('../reducers') as typeof rootReducer)
+    module.hot.accept('reducers', () =>
+      store.replaceReducer(require<typeof rootReducer>('reducers'))
     )
   }
   return store

@@ -1,30 +1,33 @@
 import * as React from 'react'
 import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { Router, browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
-import configureStore from './store'
-
-import getRoutes from 'routes'
-import DevTools from 'containers/DevTools'
+import { AppContainer } from 'react-hot-loader'
+import configureStore from 'store'
+import App from 'containers/App'
 
 const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)
 
-import * as style from './index.scss'
-import * as logo from 'images/logo.svg'
+const rootElement = document.createElement('div')
+document.body.appendChild(rootElement)
 
 render(
-  <div className={style['app']}>
-    <div className={style['logo']}>
-      <img src={logo}/>
-    </div>
-    <Provider store={store}>
-      <div>
-        <Router history={history} routes={getRoutes} />
-        <DevTools />
-      </div>
-    </Provider>
-  </div>,
-  document.body
+  <AppContainer>
+    <App history={history} store={store} />
+  </AppContainer>,
+  rootElement
 )
+
+if (module.hot) {
+  module.hot.accept('containers/App', () => {
+    const NextApp = require<{ default: typeof App }>('./containers/App').default
+
+    render(
+      <AppContainer>
+        <NextApp history={history} store={store} />
+      </AppContainer>,
+      rootElement
+    )
+  })
+}

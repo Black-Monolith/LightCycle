@@ -12,5 +12,11 @@ declare module '*.svg' {
   export = content
 }
 
+//TODO: Move this in a dedicated repo
+declare module 'react-hot-loader' {
+  const AppContainer: any
+  export { AppContainer }
+}
+
 //TODO: Move this line to a correct file
 declare var process: { env: { NODE_ENV: string }}

@@ -55,9 +55,9 @@ exports.setFreeVariable = (key, value) => ({
 })
 
 exports.extractBundle = options => ({
-  entry: {
-    [options.name]: options.entries
-  },
+  entry: [
+    options.entries
+  ],
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: [options.name, 'manifest']
@@ -134,13 +134,18 @@ exports.compileTypescript = path => ({
     loaders: [
       {
         test: /\.tsx?$/,
-        loader: 'ts'
+        loaders: ['babel', 'ts']
       }
     ]
   }
 })
 
 exports.hotModuleReplacement = () => ({
+  entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server'
+  ],
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]

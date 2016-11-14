@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack",
-    "stats": "webpack --profile --json > stats.json"
+    "start": "node webpack/server",
+    "build": "webpack --config webpack/webpack.config.js",
+    "stats": "webpack --config webpack/webpack.config.js --profile --json > stats.json"
   },
   "keywords": [
     "typescript",
@@ -32,6 +32,11 @@
     "@types/redux-thunk": "^2.1.31",
     "@types/webpack": "^1.12.35",
     "@types/webpack-env": "^1.12.1",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
     "clean-webpack-plugin": "^0.1.14",
     "css-loader": "^0.25.0",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -39,6 +44,7 @@
     "html-webpack-plugin": "^2.24.1",
     "node-sass": "^3.11.3",
     "purifycss-webpack-plugin": "^2.0.3",
+    "react-hot-loader": "^3.0.0-beta.6",
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.1.1",

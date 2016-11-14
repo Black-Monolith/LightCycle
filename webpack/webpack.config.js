@@ -5,43 +5,43 @@ const validate = require('webpack-validator')
 const when = require('when-switch').default
 
 const parts = require('./webpack.parts')
+const appRoot = path.join(__dirname, '../app')
 
 const PATHS = {
-  app: path.join(__dirname, 'app'),
+  app: appRoot,
   style: [
-    path.join(__dirname, 'app')
+    appRoot
   ],
   fonts: [
-    path.join(__dirname, 'app', 'fonts')
+    path.join(appRoot, 'fonts')
   ],
-  images: path.join(__dirname, 'app', 'images'),
-  build: path.join(__dirname, 'build')
+  images: path.join(appRoot, 'images'),
+  build: path.join(appRoot, '../build')
 }
 
 const common = {
-  entry: {
-    app: path.join(PATHS.app, 'index.tsx'),
-    style: path.join(PATHS.app, 'fonts', 'index.scss')
-  },
+  entry: [
+    'index.tsx',
+    'fonts/index.scss'
+  ],
   output: {
     path: PATHS.build,
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.ts', '.tsx', '.js', '.jsx', '.css'],
-    root: [
-      path.join(__dirname, 'app')
-    ]
+    extensions: ['', '.ts', '.tsx', '.js', '.jsx', '.scss', '.css'],
+    modulesDirectories: ['app', 'node_modules']
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack Boilerplate'
+      title: 'LightCycle'
     })
   ]
 }
 
 const config =
   when(process.env.npm_lifecycle_event)
+    // Production
     .is('build', merge(
       common,
       {
@@ -68,20 +68,17 @@ const config =
       parts.purifyCSS([PATHS.app]),
       parts.compileTypescript(PATHS.app)
     ))
+    // Development
     .else(merge(
+      parts.hotModuleReplacement(),
       common,
       {
-        devtool: 'eval-source-map'
+        devtool: 'eval'
       },
-      parts.hotModuleReplacement(),
       parts.loadImages(PATHS.images),
       parts.loadFonts(PATHS.fonts),
       parts.setupCSS(PATHS.style),
-      parts.compileTypescript(PATHS.app),
-      parts.devServer({
-        host: process.env.HOST,
-        port: process.env.PORT
-      })
+      parts.compileTypescript(PATHS.app)
     ))
 
 module.exports = validate(config, {
