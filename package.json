@@ -1,6 +1,6 @@
 {
-  "name": "workshop",
-  "version": "0.1.0",
+  "name": "lightcycle",
+  "version": "0.1.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,8 @@
     "immutable",
     "react",
     "redux",
-    "webpack"
+    "webpack",
+    "hotreload"
   ],
   "author": "",
   "license": "MIT",
