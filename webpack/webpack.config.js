@@ -21,8 +21,9 @@ const PATHS = {
 
 const common = {
   entry: [
-    'index.tsx',
-    'fonts/index.scss'
+    'fonts/index.scss',
+    'global.scss',
+    'index.tsx'
   ],
   output: {
     path: PATHS.build,

@@ -1,8 +1,7 @@
 import * as React from 'react'
-
 import Shortcut from 'components/Shortcut'
 
-const Home = () => (
+export default () => (
   <div>
     <h1>Hello.</h1>
     <p>Welcome to LightCycle.</p>
@@ -10,5 +9,3 @@ const Home = () => (
     <p>Use <Shortcut ctrl letter='P' /> to change Devtools position.</p>
   </div>
 )
-
-export default Home

@@ -8,7 +8,7 @@ type Props = {
   letter: string
 }
 
-const Shortcut = (props: Props) => (
+export default (props: Props) => (
   <span className={style['shortcut']}>
     {
       [
@@ -22,5 +22,3 @@ const Shortcut = (props: Props) => (
     }
   </span>
 )
-
-export default Shortcut
