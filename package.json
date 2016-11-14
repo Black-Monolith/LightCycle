@@ -51,12 +51,12 @@
     "redux-devtools-log-monitor": "^1.1.1",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
-    "ts-loader": "^0.9.5",
+    "ts-loader": "^1.2.0",
     "typescript": "^2.1.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2",
-    "webpack-merge": "^0.14.1",
+    "webpack-merge": "^0.16.0",
     "webpack-validator": "^2.2.9"
   },
   "dependencies": {
