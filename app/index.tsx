@@ -3,6 +3,8 @@ import { render } from 'react-dom'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { AppContainer } from 'react-hot-loader'
+import { Provider } from 'react-redux'
+
 import configureStore from 'store'
 import App from 'containers/App'
 
@@ -14,7 +16,9 @@ document.body.appendChild(rootElement)
 
 render(
   <AppContainer>
-    <App history={history} store={store} />
+    <Provider store={store}>
+      <App history={history} />
+    </Provider>
   </AppContainer>,
   rootElement
 )
@@ -25,7 +29,9 @@ if (module.hot) {
 
     render(
       <AppContainer>
-        <NextApp history={history} store={store} />
+        <Provider store={store}>
+          <NextApp history={history} />
+        </Provider>
       </AppContainer>,
       rootElement
     )
