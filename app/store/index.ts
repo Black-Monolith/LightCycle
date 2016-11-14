@@ -1,5 +1,4 @@
 import { Store } from 'redux'
-
 import { State } from 'reducers'
 
 type ConfigureStore = (initialState?: State) => Store<State>
