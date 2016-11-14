@@ -68,6 +68,6 @@
     "redux": "^3.5.2",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
-    "when-switch": "^0.1.0"
+    "when-switch": "^0.1.1"
   }
 }
