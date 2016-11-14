@@ -13,15 +13,15 @@ const PATHS = {
     appRoot
   ],
   fonts: [
-    path.join(appRoot, 'fonts')
+    path.join(appRoot, 'assets/fonts')
   ],
-  images: path.join(appRoot, 'images'),
+  images: path.join(appRoot, 'assets/images'),
   build: path.join(appRoot, '../build')
 }
 
 const common = {
   entry: [
-    'fonts/index.scss',
+    'assets/fonts/index.scss',
     'global.scss',
     'index.tsx'
   ],
