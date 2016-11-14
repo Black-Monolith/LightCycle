@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as style from './Counter.scss'
+import * as style from './style.scss'
 import { MappedProps } from 'containers/Counter'
 
 export default (props: MappedProps) => (

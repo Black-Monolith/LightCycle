@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Navbar from 'components/Navbar'
 import Header from 'components/Header'
-import * as style from './App.scss'
+import * as style from './style.scss'
 
 type Props = React.Props<void>
 

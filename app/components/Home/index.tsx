@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as style from './Home.scss'
+import * as style from './style.scss'
 
 const Shortcut = (props: { binding: string }) => (
   <span className={style['shortcut']}>

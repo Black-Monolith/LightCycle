@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { Link } from 'react-router'
-
-import * as styles from './Navbar.scss'
+import * as style from './style.scss'
 
 export default () => (
-  <nav className={styles['navbar']}>
+  <nav className={style['navbar']}>
     <ul>
       <li>
         <Link to={'/'}> Home </Link>
