@@ -1,18 +1,8 @@
 import * as React from 'react'
 import * as style from './Counter.scss'
-import { CounterState } from 'reducers/counter'
+import { MappedProps } from 'containers/Counter'
 
-export type MappedState = CounterState
-
-export type MappedDispatch = {
-  increment: React.EventHandler<any>,
-  decrement: React.EventHandler<any>,
-  incrementAsync: React.EventHandler<any>
-}
-
-type Props = CounterState & MappedDispatch
-
-export default (props: Props) => (
+export default (props: MappedProps) => (
   <div>
     <h1>Counter.</h1>
     <p className={style['counter']}>
