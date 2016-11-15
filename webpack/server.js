@@ -11,6 +11,8 @@ new WebpackDevServer(
     historyApiFallback: true
   }
 )
-  .listen(port, 'localhost', err => err ?
-    console.error(err) : console.log(`Listening at localhost:${port}`)
+  .listen(port, 'localhost', err =>
+    err ?
+      console.error(err) :
+      console.log(`Listening at localhost:${port}`)
   )
