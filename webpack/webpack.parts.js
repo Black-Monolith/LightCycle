@@ -107,11 +107,6 @@ exports.extractCSS = paths => ({
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style', 'css'),
         include: paths
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css', 'sass'),
-        include: paths
       }
     ]
   },

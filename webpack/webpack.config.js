@@ -65,6 +65,7 @@ const config =
       parts.minify(),
       parts.loadImages(PATHS.images),
       parts.loadFonts(PATHS.fonts),
+      parts.setupCSS(PATHS.style),
       parts.extractCSS(PATHS.style),
       parts.purifyCSS([PATHS.app]),
       parts.compileTypescript(PATHS.app)
