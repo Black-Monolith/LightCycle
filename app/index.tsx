@@ -15,18 +15,19 @@ document.body.appendChild(rootElement)
 
 render(
   <AppContainer>
-    <App store={store} history={history}/>
+    <App store={store} history={history} />
   </AppContainer>,
   rootElement
 )
 
 if (module.hot) {
   module.hot.accept('containers/App', () => {
-    const NextApp = require<{ default: typeof App }>('containers/App').default
+    // Require App container again
+    const NextApp: typeof App = require<any>('containers/App').default
 
     render(
       <AppContainer>
-        <NextApp store={store} history={history}/>
+        <NextApp store={store} history={history} />
       </AppContainer>,
       rootElement
     )

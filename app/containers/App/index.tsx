@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import { ComponentClass } from 'react'
 import { Store } from 'react-redux'
 import { ReactRouterReduxHistory } from 'react-router-redux'
 import { State } from 'reducers'
@@ -8,7 +8,7 @@ export type Props = {
   history: ReactRouterReduxHistory
 }
 
-interface App extends Component<Props, void> {}
+type App = ComponentClass<Props>
 
 export default
   process.env.NODE_ENV === 'production' ?
