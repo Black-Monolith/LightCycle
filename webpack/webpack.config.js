@@ -60,7 +60,7 @@ const config =
       ),
       parts.extractBundle({
         name: 'vendor',
-        entries: ['react']
+        entries: 'react'
       }),
       parts.minify(),
       parts.loadImages(PATHS.images),
