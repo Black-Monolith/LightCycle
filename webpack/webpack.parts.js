@@ -24,12 +24,12 @@ exports.setupCSS = paths => ({
     loaders: [
       {
         test: /\.css$/,
-        loaders: ['style', 'css?modules'],
+        loaders: ['style-loader', 'css-loader?modules'],
         include: paths
       },
       {
         test: /\.scss$/,
-        loaders: ['style', 'css?modules', 'sass'],
+        loaders: ['style-loader', 'css-loader?modules', 'sass-loader'],
         include: paths
       }
     ]
@@ -78,7 +78,7 @@ exports.loadImages = paths => ({
     loaders: [
       {
         test: /\.svg$/,
-        loader: 'file',
+        loader: 'file-loader',
         include: paths
       }
     ]
@@ -90,7 +90,7 @@ exports.loadFonts = paths => ({
     loaders: [
       {
         test: /\.woff(2)?$/,
-        loader: 'url',
+        loader: 'url-loader',
         query: {
           name: 'fonts/[hash].[ext]'
         },
@@ -105,7 +105,7 @@ exports.extractCSS = paths => ({
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css'),
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
         include: paths
       }
     ]
@@ -129,7 +129,7 @@ exports.compileTypescript = path => ({
     loaders: [
       {
         test: /\.tsx?$/,
-        loaders: ['babel', 'ts']
+        loaders: ['babel-loader', 'ts-loader']
       }
     ]
   }
