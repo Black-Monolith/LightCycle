@@ -4565,7 +4565,7 @@ type-is@~1.6.13:
     media-typer "0.3.0"
     mime-types "~2.1.11"
 
-typescript@next:
+typescript@2.2.0-dev.20161116:
   version "2.2.0-dev.20161116"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.2.0-dev.20161116.tgz#30be49322b4ff71bae979a334c155e61e3934e60"
 
