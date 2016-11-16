@@ -1,7 +1,7 @@
-<p align="center">
+<h1 align="center">
   <img alt="LightCycle Boilerplate"
     src="https://rawgithub.com/Black-Monolith/LightCycle/master/app/assets/images/logo.svg">
-</p>
+</h1>
 
 <p align="center">
   <img alt="React + Redux + TypeScript + Webpack + HotReload + CSS Modules + Sass"
