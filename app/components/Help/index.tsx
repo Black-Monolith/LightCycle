@@ -1,12 +1,7 @@
 import * as React from 'react'
-import { Link, RouteProps } from 'react-router'
+import { Link } from 'react-router'
 
-//TODO: Fix typing here
-type RouteInjectedProps = {
-  route: RouteProps
-}
-
-type Props = React.Props<void> & RouteInjectedProps
+type Props = React.Props<void>
 
 export default (props: Props) => (
   <div>
@@ -14,12 +9,12 @@ export default (props: Props) => (
     <nav>
       <ul>
         <li>
-          <Link to={`${props.route.path}/hello`}>
+          <Link to='/help/hello'>
             Hello
           </Link>
         </li>
         <li>
-          <Link to={`${props.route.path}/world`}>
+          <Link to='/help/world'>
             World
           </Link>
         </li>
