@@ -1,27 +1,23 @@
-<center>
+<p align="center">
+  <img alt="LightCycle Boilerplate"
+    src="https://rawgithub.com/Black-Monolith/LightCycle/master/app/assets/images/logo.svg">
+</p>
 
-![LightCycle](https://rawgithub.com/Black-Monolith/LightCycle/master/app/assets/images/logo.svg)
-----
+<p align="center">
+  <img alt="React + Redux + TypeScript + Webpack + HotReload + CSS Modules + Sass"
+    src="https://rawgithub.com/Black-Monolith/LightCycle/master/app/assets/images/icons.svg">
+</p>
 
-</center>
-<center>
-
-![React + Redux + TypeScript + Webpack + HotReload + CSS Modules + Sass](https://rawgithub.com/Black-Monolith/LightCycle/master/app/assets/images/icons.svg)
-
-</center>
-
-<center>
-
+<p align="center">
   <a href="https://david-dm.org/black-monolith/LightCycle">
-    <img src="https://david-dm.org/black-monolith/LightCycle.svg"
-      alt="Dependencies Status">
+    <img alt="Dependencies Status"
+      src="https://david-dm.org/black-monolith/LightCycle.svg">
   </a>
   <a href="https://david-dm.org/black-monolith/LightCycle?type=dev">
-    <img src="https://david-dm.org/black-monolith/LightCycle/dev-status.svg"
-      alt="Dev Dependencies Status">
+    <img alt="Dev Dependencies Status"
+      src="https://david-dm.org/black-monolith/LightCycle/dev-status.svg">
   </a>
-
-</center>
+</p>
 
 ## Install
 ```
@@ -29,7 +25,7 @@ npm install
 ```
 
 ## Run
-Development mode with HotReload
+Development mode with HotReload and Redux DevTools
 ```
 npm start
 ```
