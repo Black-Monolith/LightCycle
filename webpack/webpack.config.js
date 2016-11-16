@@ -29,8 +29,11 @@ const common = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css'],
-    modules: ['app', 'node_modules']
+    modules: [
+      'app',
+      'node_modules'
+    ],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css']
   },
   plugins: [
     new HtmlWebpackPlugin({
