@@ -29,7 +29,7 @@ const common = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.ts', '.tsx', '.js', '.jsx', '.scss', '.css'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css'],
     modulesDirectories: ['app', 'node_modules']
   },
   plugins: [
