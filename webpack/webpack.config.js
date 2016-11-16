@@ -42,7 +42,8 @@ const common = {
 
 const config =
   when(process.env.npm_lifecycle_event)
-    // Production
+
+    // Production config
     .is('build', merge(
       common,
       {
@@ -70,7 +71,8 @@ const config =
       parts.purifyCSS([PATHS.app]),
       parts.compileTypescript(PATHS.app)
     ))
-    // Development
+
+    // Development config
     .else(merge(
       parts.hotModuleReplacement(),
       common,
