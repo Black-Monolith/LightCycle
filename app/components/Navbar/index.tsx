@@ -11,6 +11,9 @@ export default () => (
       <li>
         <Link to={'/counter'}> Counter </Link>
       </li>
+      <li>
+        <Link to={'/help'}> Help </Link>
+      </li>
     </ul>
   </nav>
 )
