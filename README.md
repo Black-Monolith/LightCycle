@@ -21,16 +21,16 @@
 
 ## Install
 ```
-npm install
+yarn
 ```
 
 ## Run
 Development mode with HotReload and Redux DevTools
 ```
-npm start
+yarn start
 ```
 
 ## Build
 ```
-npm run build
+yarn build
 ```
