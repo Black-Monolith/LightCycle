@@ -1,7 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const merge = require('webpack-merge')
-const validate = require('webpack-validator')
 const when = require('when-switch').default
 
 const parts = require('./webpack.parts')
@@ -30,8 +29,11 @@ const common = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.ts', '.tsx', '.js', '.jsx', '.scss', '.css'],
-    modulesDirectories: ['app', 'node_modules']
+    modules: [
+      'app',
+      'node_modules'
+    ],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css']
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -40,9 +42,10 @@ const common = {
   ]
 }
 
-const config =
+module.exports =
   when(process.env.npm_lifecycle_event)
-    // Production
+
+    // Production config
     .is('build', merge(
       common,
       {
@@ -70,7 +73,8 @@ const config =
       parts.purifyCSS([PATHS.app]),
       parts.compileTypescript(PATHS.app)
     ))
-    // Development
+
+    // Development config
     .else(merge(
       parts.hotModuleReplacement(),
       common,
@@ -82,7 +86,3 @@ const config =
       parts.setupCSS(PATHS.style),
       parts.compileTypescript(PATHS.app)
     ))
-
-module.exports = validate(config, {
-  quiet: true
-})
