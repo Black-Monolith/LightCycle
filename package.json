@@ -56,8 +56,7 @@
     "url-loader": "^0.5.7",
     "webpack": "2.1.0-beta.27",
     "webpack-dev-server": "^1.16.2",
-    "webpack-merge": "^0.17.0",
-    "webpack-validator": "^2.2.9"
+    "webpack-merge": "^0.17.0"
   },
   "dependencies": {
     "monolite": "^0.1.2",

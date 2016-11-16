@@ -1,7 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const merge = require('webpack-merge')
-const validate = require('webpack-validator')
 const when = require('when-switch').default
 
 const parts = require('./webpack.parts')
@@ -40,7 +39,7 @@ const common = {
   ]
 }
 
-const config =
+module.exports =
   when(process.env.npm_lifecycle_event)
 
     // Production config
@@ -84,7 +83,3 @@ const config =
       parts.setupCSS(PATHS.style),
       parts.compileTypescript(PATHS.app)
     ))
-
-module.exports = validate(config, {
-  quiet: true
-})
