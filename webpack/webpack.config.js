@@ -30,7 +30,7 @@ const common = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css'],
-    modulesDirectories: ['app', 'node_modules']
+    modules: ['app', 'node_modules']
   },
   plugins: [
     new HtmlWebpackPlugin({
