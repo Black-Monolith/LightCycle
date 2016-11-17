@@ -1,8 +1,9 @@
 const webpack = require('webpack')
-const HtmlWebpack = require('html-webpack-plugin')
+const merge = require('webpack-merge')
 const ExtractText = require('extract-text-webpack-plugin')
 const PurifyCSS = require('purifycss-webpack-plugin')
 const CleanWebpack = require('clean-webpack-plugin')
+const HtmlWebpack = require('html-webpack-plugin')
 
 exports.loadImages = paths => ({
   module: {
@@ -31,14 +32,9 @@ exports.loadFonts = paths => ({
   }
 })
 
-exports.setupCSS = paths => ({
+exports.setupStyles = paths => ({
   module: {
     loaders: [
-      {
-        test: /\.css$/,
-        loaders: ['style-loader', 'css-loader?modules'],
-        include: paths
-      },
       {
         test: /\.scss$/,
         loaders: ['style-loader', 'css-loader?modules', 'sass-loader'],
@@ -46,6 +42,25 @@ exports.setupCSS = paths => ({
       }
     ]
   }
+})
+
+exports.compileTypescript = () => ({
+  module: {
+    loaders: [
+      {
+        test: /\.tsx?$/,
+        loaders: ['babel-loader', 'ts-loader']
+      }
+    ]
+  }
+})
+
+exports.createHtmlIndex = () => ({
+  plugins: [
+    new HtmlWebpack({
+      title: 'LightCycle'
+    })
+  ]
 })
 
 exports.extractCSS = paths => ({
@@ -67,46 +82,8 @@ exports.purifyCSS = paths => ({
   plugins: [
     new PurifyCSS({
       basePath: process.cwd(),
-      paths: paths
+      paths: [paths]
     })
-  ]
-})
-
-exports.compileTypescript = () => ({
-  module: {
-    loaders: [
-      {
-        test: /\.tsx?$/,
-        loaders: ['babel-loader', 'ts-loader']
-      }
-    ]
-  }
-})
-
-exports.createHtml = () => ({
-  plugins: [
-    new HtmlWebpack({
-      title: 'LightCycle'
-    })
-  ]
-})
-
-exports.devServer = (host, port) => ({
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server'
-  ],
-  devServer: {
-    historyApiFallback: true,
-    hot: true,
-    inline: true,
-    stats: 'errors-only',
-    host,
-    port
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
   ]
 })
 

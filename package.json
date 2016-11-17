@@ -4,9 +4,8 @@
   "description": "TypeScript + Webpack 2 + React + Redux + HotReload Boilerplate",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack/webpack.config.js",
-    "build": "webpack --config webpack/webpack.config.js",
-    "stats": "webpack --config webpack/webpack.config.js --profile --json > stats.json"
+    "start": "webpack-dev-server --config webpack/webpack.dev.js",
+    "build": "webpack --config webpack/webpack.prod.js"
   },
   "keywords": [
     "typescript",
