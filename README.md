@@ -20,17 +20,17 @@
 </p>
 
 ## Install
-```
+```sh
 yarn
 ```
 
 ## Run
 Development mode with HotReload and Redux DevTools
-```
+```sh
 yarn start
 ```
 
 ## Build
-```
+```sh
 yarn build
 ```
