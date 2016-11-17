@@ -1,5 +1,4 @@
 const webpack = require('webpack')
-const merge = require('webpack-merge')
 const ExtractText = require('extract-text-webpack-plugin')
 const PurifyCSS = require('purifycss-webpack-plugin')
 const CleanWebpack = require('clean-webpack-plugin')
