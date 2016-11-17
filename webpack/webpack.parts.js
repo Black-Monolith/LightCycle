@@ -1,77 +1,8 @@
 const webpack = require('webpack')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const PurifyCSSPlugin = require('purifycss-webpack-plugin')
-
-exports.devServer = options => ({
-  devServer: {
-    historyApiFallback: true,
-    hot: true,
-    inline: true,
-    stats: 'errors-only',
-    host: options.host,
-    port: options.port
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin({
-      multiStep: true
-    })
-  ]
-})
-
-exports.setupCSS = paths => ({
-  module: {
-    loaders: [
-      {
-        test: /\.css$/,
-        loaders: ['style-loader', 'css-loader?modules'],
-        include: paths
-      },
-      {
-        test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader?modules', 'sass-loader'],
-        include: paths
-      }
-    ]
-  }
-})
-
-exports.minify = () => ({
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
-  ]
-})
-
-exports.setFreeVariable = (key, value) => ({
-  plugins: [
-    new webpack.DefinePlugin({
-      [key]: JSON.stringify(value)
-    })
-  ]
-})
-
-exports.extractBundle = options => ({
-  entry: [
-    options.entries
-  ],
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      names: [options.name, 'manifest']
-    })
-  ]
-})
-
-exports.clean = path => ({
-  plugins: [
-    new CleanWebpackPlugin([path], {
-      root: process.cwd()
-    })
-  ]
-})
+const HtmlWebpack = require('html-webpack-plugin')
+const ExtractText = require('extract-text-webpack-plugin')
+const PurifyCSS = require('purifycss-webpack-plugin')
+const CleanWebpack = require('clean-webpack-plugin')
 
 exports.loadImages = paths => ({
   module: {
@@ -100,31 +31,48 @@ exports.loadFonts = paths => ({
   }
 })
 
+exports.setupCSS = paths => ({
+  module: {
+    loaders: [
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader?modules'],
+        include: paths
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style-loader', 'css-loader?modules', 'sass-loader'],
+        include: paths
+      }
+    ]
+  }
+})
+
 exports.extractCSS = paths => ({
   module: {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract(['style-loader', 'css-loader']),
+        loader: ExtractText.extract(['style-loader', 'css-loader']),
         include: paths
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin('[name].[chunkhash].css')
+    new ExtractText('[name].[chunkhash].css')
   ]
 })
 
 exports.purifyCSS = paths => ({
   plugins: [
-    new PurifyCSSPlugin({
+    new PurifyCSS({
       basePath: process.cwd(),
       paths: paths
     })
   ]
 })
 
-exports.compileTypescript = path => ({
+exports.compileTypescript = () => ({
   module: {
     loaders: [
       {
@@ -135,13 +83,64 @@ exports.compileTypescript = path => ({
   }
 })
 
-exports.hotModuleReplacement = () => ({
+exports.createHtml = () => ({
+  plugins: [
+    new HtmlWebpack({
+      title: 'LightCycle'
+    })
+  ]
+})
+
+exports.devServer = (host, port) => ({
   entry: [
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server'
   ],
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    stats: 'errors-only',
+    host,
+    port
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
+  ]
+})
+
+exports.setFreeVariable = (key, value) => ({
+  plugins: [
+    new webpack.DefinePlugin({
+      [key]: JSON.stringify(value)
+    })
+  ]
+})
+
+exports.minify = () => ({
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ]
+})
+
+exports.extractBundle = options => ({
+  entry: [options.entry],
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      names: [options.name, 'manifest']
+    })
+  ]
+})
+
+exports.clean = path => ({
+  plugins: [
+    new CleanWebpack([path], {
+      root: process.cwd()
+    })
   ]
 })
