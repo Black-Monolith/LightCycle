@@ -3,7 +3,7 @@ const merge = require('webpack-merge')
 const parts = require('./parts')
 const common = require('./webpack.common')
 
-module.exports = merge(
+const config = merge(
   {
     devtool: 'eval',
     entry: [
@@ -30,3 +30,5 @@ module.exports = merge(
   parts.compileTypescript(),
   common.config
 )
+
+module.exports = config

@@ -2,7 +2,7 @@ const merge = require('webpack-merge')
 const parts = require('./parts')
 const common = require('./webpack.common')
 
-module.exports = merge(
+const config = merge(
   {
     devtool: 'source-map',
     output: {
@@ -24,3 +24,5 @@ module.exports = merge(
   parts.setupStyles(common.paths.style),
   common.config
 )
+
+module.exports = config
