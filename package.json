@@ -22,7 +22,6 @@
     "@types/react": "^0.14.47",
     "@types/react-dom": "^0.14.17",
     "@types/react-redux": "^4.4.32",
-    "@types/react-router": "^2.0.37",
     "@types/react-router-redux": "^4.0.34",
     "@types/redux": "^3.6.31",
     "@types/redux-devtools": "^3.0.34",
