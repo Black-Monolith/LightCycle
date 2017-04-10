@@ -1,14 +1,13 @@
 import * as React from 'react'
 import { render } from 'react-dom'
-import { browserHistory } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
+import createHistory from 'history/createBrowserHistory'
 import { AppContainer } from 'react-hot-loader'
 
 import configureStore from 'store'
 import App from 'containers/App'
 
 const store = configureStore()
-const history = syncHistoryWithStore(browserHistory, store)
+const history = createHistory()
 
 const rootElement = document.createElement('div')
 document.body.appendChild(rootElement)

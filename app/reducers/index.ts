@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import { routerReducer } from 'react-router-redux'
+import { routerReducer, RouterState } from 'react-router-redux'
 
 import counterReducer, { CounterState } from 'reducers/counter'
 
 export type State = {
-  routing: any,
+  routing: RouterState,
   counter: CounterState
 }
 

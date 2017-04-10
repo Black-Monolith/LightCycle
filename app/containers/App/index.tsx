@@ -1,11 +1,11 @@
 import { ComponentClass } from 'react'
 import { Store } from 'react-redux'
-import { ReactRouterReduxHistory } from 'react-router-redux'
+import { History } from 'history'
 import { State } from 'reducers'
 
 export type Props = {
   store: Store<State>,
-  history: ReactRouterReduxHistory
+  history: History
 }
 
 type App = ComponentClass<Props>

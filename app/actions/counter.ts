@@ -1,4 +1,4 @@
-import { ThunkAction } from 'redux'
+import { ThunkAction } from 'redux-thunk'
 import { State } from '../reducers'
 
 export const increment = {
