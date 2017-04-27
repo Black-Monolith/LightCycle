@@ -6,7 +6,7 @@ const HtmlWebpack = require('html-webpack-plugin')
 
 exports.loadImages = paths => ({
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.svg$/,
         loader: 'file-loader',
@@ -18,7 +18,7 @@ exports.loadImages = paths => ({
 
 exports.loadFonts = paths => ({
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.woff(2)?$/,
         loader: 'url-loader',
@@ -33,7 +33,7 @@ exports.loadFonts = paths => ({
 
 exports.setupStyles = paths => ({
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.scss$/,
         loaders: ['style-loader', 'css-loader?modules', 'sass-loader'],
@@ -45,10 +45,20 @@ exports.setupStyles = paths => ({
 
 exports.compileTypescript = () => ({
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.tsx?$/,
-        loaders: ['babel-loader', 'ts-loader']
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            ['es2015', { modules: false }],
+            'react'
+          ]
+        }
+      },
+      {
+        test: /\.tsx?$/,
+        loaders: ['react-hot-loader/webpack', 'ts-loader']
       }
     ]
   }
@@ -64,7 +74,7 @@ exports.createHtmlIndex = () => ({
 
 exports.extractCSS = paths => ({
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
         loader: ExtractText.extract(['style-loader', 'css-loader']),
