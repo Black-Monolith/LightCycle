@@ -59,7 +59,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
-    "monolite": "^0.3.1",
+    "monolite": "^0.4.4",
     "react": "^15.5.3",
     "react-dom": "^15.5.3",
     "react-redux": "^5.0.4",
