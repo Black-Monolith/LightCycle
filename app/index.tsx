@@ -12,23 +12,14 @@ const history = createHistory()
 const rootElement = document.createElement('div')
 document.body.appendChild(rootElement)
 
-render(
+const renderApp = () => render(
   <AppContainer>
     <App store={store} history={history} />
   </AppContainer>,
   rootElement
 )
 
-if (module.hot) {
-  module.hot.accept('containers/App', () => {
-    // Require App container again
-    const NextApp: typeof App = require<any>('containers/App').default
+if (module.hot)
+  module.hot.accept('containers/App', renderApp)
 
-    render(
-      <AppContainer>
-        <NextApp store={store} history={history} />
-      </AppContainer>,
-      rootElement
-    )
-  })
-}
+renderApp()
