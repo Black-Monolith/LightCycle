@@ -58,7 +58,7 @@ exports.compileTypescript = () => ({
       },
       {
         test: /\.tsx?$/,
-        loaders: ['react-hot-loader/webpack', 'ts-loader']
+        loaders: ['ts-loader']
       }
     ]
   }

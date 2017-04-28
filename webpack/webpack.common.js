@@ -18,8 +18,8 @@ exports.config =
     ],
     resolve: {
       modules: [
-        'app',
-        'node_modules'
+        'node_modules',
+        'app'
       ],
       extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css']
     }
